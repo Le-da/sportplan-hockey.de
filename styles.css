@@ -247,6 +247,91 @@ footer {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
+/* ── Trainingsplan ── */
+.plan-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.plan-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.plan-table thead tr {
+    background: linear-gradient(135deg, #ff4757 0%, #3742fa 100%);
+    color: white;
+}
+.plan-table th {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+.plan-table tbody tr:nth-child(odd) {
+    background: #f8f9ff;
+}
+.plan-table tbody tr:nth-child(even) {
+    background: #fff;
+}
+.plan-table tbody tr:hover {
+    background: #eef0ff;
+}
+.plan-table td {
+    padding: 0.6rem 0.75rem;
+    vertical-align: top;
+}
+.day-label {
+    font-weight: bold;
+    color: #3742fa;
+    white-space: nowrap;
+    width: 110px;
+    vertical-align: middle !important;
+}
+.plan-input {
+    width: 100%;
+    min-height: 60px;
+    border: 1.5px solid #e0e3f0;
+    border-radius: 8px;
+    padding: 0.5rem;
+    font-family: inherit;
+    font-size: 0.88rem;
+    color: #333;
+    resize: vertical;
+    transition: border-color 0.2s;
+}
+.plan-input:focus {
+    outline: none;
+    border-color: #3742fa;
+}
+.plan-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+.plan-btn {
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.plan-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.plan-btn-reset {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff4757 100%);
+}
+
 /* ── Tablet ── */
 @media (max-width: 768px) {
     header {
@@ -375,5 +460,43 @@ footer {
     footer {
         padding: 0.75rem;
         font-size: 0.82rem;
+    }
+    .plan-table thead {
+        display: none;
+    }
+    .plan-table tbody tr {
+        display: block;
+        margin-bottom: 0.75rem;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .plan-table td {
+        display: block;
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+    }
+    .plan-table td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.72rem;
+        color: #888;
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+    }
+    .day-label {
+        background: linear-gradient(135deg, #ff4757 0%, #3742fa 100%);
+        color: white !important;
+        font-size: 1rem;
+        padding: 0.6rem 0.75rem;
+        width: 100%;
+    }
+    .plan-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .plan-btn {
+        width: 100%;
+        padding: 0.7rem;
     }
 }

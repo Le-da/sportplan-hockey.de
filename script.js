@@ -62,6 +62,44 @@ function playSound() {
     audio.play().catch(e => console.log('Sound play failed'));
 }
 
+const PLAN_DAYS = ['mon','die','mit','don','fre','sam','son'];
+
+function savePlan() {
+    const plan = {};
+    PLAN_DAYS.forEach(day => {
+        plan[day] = {
+            einheit: document.getElementById('einheit-' + day).value,
+            ziel:    document.getElementById('ziel-' + day).value
+        };
+    });
+    localStorage.setItem('trainingsplan', JSON.stringify(plan));
+    const btn = document.querySelector('.plan-btn');
+    const orig = btn.textContent;
+    btn.textContent = 'Gespeichert!';
+    setTimeout(() => btn.textContent = orig, 1500);
+}
+
+function loadPlan() {
+    const saved = localStorage.getItem('trainingsplan');
+    if (!saved) return;
+    const plan = JSON.parse(saved);
+    PLAN_DAYS.forEach(day => {
+        if (plan[day]) {
+            document.getElementById('einheit-' + day).value = plan[day].einheit || '';
+            document.getElementById('ziel-' + day).value    = plan[day].ziel    || '';
+        }
+    });
+}
+
+function resetPlan() {
+    if (!confirm('Trainingsplan wirklich zurücksetzen?')) return;
+    localStorage.removeItem('trainingsplan');
+    PLAN_DAYS.forEach(day => {
+        document.getElementById('einheit-' + day).value = '';
+        document.getElementById('ziel-' + day).value    = '';
+    });
+}
+
 // Default open first tab
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementsByClassName("tab")[0].click();
@@ -69,4 +107,5 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('exerciseModal').addEventListener('click', function(e) {
         if (e.target === this) closeModal();
     });
+    loadPlan();
 });

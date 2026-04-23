@@ -23,6 +23,7 @@
                 <button class="tab" onclick="openTab(event, 'Oberkoerper')">Oberkörpertraining</button>
                 <button class="tab" onclick="openTab(event, 'Cardio')">Cardio</button>
                 <button class="tab" onclick="openTab(event, 'Hockeyspezifisch')">Feldhockey-spezifisch</button>
+                <button class="tab" onclick="openTab(event, 'Trainingsplan')">Trainingsplan</button>
             </div>
             
             <div id="Beintraining" class="tab-content">
@@ -177,6 +178,34 @@
                         <p>10 Minuten</p>
                         <p class="motivation">"Sei wendig, sei schnell – sei unschlagbar!"</p>
                     </div>
+                </div>
+            </div>
+            <div id="Trainingsplan" class="tab-content">
+                <h2>Wöchentlicher Trainingsplan</h2>
+                <p>Trage deine Trainingseinheiten und Ziele für jede Woche ein.</p>
+                <div class="plan-table-wrapper">
+                    <table class="plan-table">
+                        <thead>
+                            <tr>
+                                <th>Tag</th>
+                                <th>Trainingseinheit</th>
+                                <th>Trainingsziel</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="day-label">Montag</td><td data-label="Trainingseinheit"><textarea id="einheit-mon" class="plan-input" placeholder="z.B. Beintraining"></textarea></td><td data-label="Trainingsziel"><textarea id="ziel-mon" class="plan-input" placeholder="z.B. 3x10 Squats"></textarea></td></tr>
+                            <tr><td class="day-label">Dienstag</td><td data-label="Trainingseinheit"><textarea id="einheit-die" class="plan-input" placeholder="z.B. Cardio"></textarea></td><td data-label="Trainingsziel"><textarea id="ziel-die" class="plan-input" placeholder="z.B. 30 Min joggen"></textarea></td></tr>
+                            <tr><td class="day-label">Mittwoch</td><td data-label="Trainingseinheit"><textarea id="einheit-mit" class="plan-input" placeholder="z.B. Pause"></textarea></td><td data-label="Trainingsziel"><textarea id="ziel-mit" class="plan-input" placeholder="z.B. Regeneration"></textarea></td></tr>
+                            <tr><td class="day-label">Donnerstag</td><td data-label="Trainingseinheit"><textarea id="einheit-don" class="plan-input" placeholder="z.B. Oberkörper"></textarea></td><td data-label="Trainingsziel"><textarea id="ziel-don" class="plan-input" placeholder="z.B. Push-ups steigern"></textarea></td></tr>
+                            <tr><td class="day-label">Freitag</td><td data-label="Trainingseinheit"><textarea id="einheit-fre" class="plan-input" placeholder="z.B. Hockey-Training"></textarea></td><td data-label="Trainingsziel"><textarea id="ziel-fre" class="plan-input" placeholder="z.B. Schuss verbessern"></textarea></td></tr>
+                            <tr><td class="day-label">Samstag</td><td data-label="Trainingseinheit"><textarea id="einheit-sam" class="plan-input" placeholder="z.B. Spiel"></textarea></td><td data-label="Trainingsziel"><textarea id="ziel-sam" class="plan-input" placeholder="z.B. 2 Tore schießen"></textarea></td></tr>
+                            <tr><td class="day-label">Sonntag</td><td data-label="Trainingseinheit"><textarea id="einheit-son" class="plan-input" placeholder="z.B. Pause"></textarea></td><td data-label="Trainingsziel"><textarea id="ziel-son" class="plan-input" placeholder="z.B. Dehnen"></textarea></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="plan-buttons">
+                    <button class="plan-btn" onclick="savePlan()">Speichern</button>
+                    <button class="plan-btn plan-btn-reset" onclick="resetPlan()">Zurücksetzen</button>
                 </div>
             </div>
         </div>
