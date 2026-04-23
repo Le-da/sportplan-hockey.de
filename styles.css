@@ -196,6 +196,7 @@ footer {
 .exercise-card {
     cursor: pointer;
 }
+.banner,
 .cardio-banner {
     position: relative;
     width: 100%;
