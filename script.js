@@ -64,11 +64,40 @@ function playSound() {
 
 const PLAN_DAYS = ['mon','die','mit','don','fre','sam','son'];
 
+const EXERCISES = {
+    'Beintraining':          ['Squats', 'Lunges', 'Box Jumps'],
+    'Bauchtraining':         ['Plank', 'Russian Twists', 'Bicycle Crunches'],
+    'Oberkörpertraining':    ['Push-ups', 'Pull-ups', 'Shoulder Press'],
+    'Cardio':                ['Joggen', 'Intervalltraining', 'Radfahren'],
+    'Feldhockey-spezifisch': ['Schuss-Training', 'Pass-Übungen', 'Agility Drills'],
+    'Pause / Ruhetag':       []
+};
+
+function updateExercises(day, selectedValue) {
+    const cat = document.getElementById('einheit-' + day).value;
+    const sub = document.getElementById('uebung-' + day);
+    sub.innerHTML = '<option value="">— Übung —</option>';
+    const list = EXERCISES[cat] || [];
+    if (list.length === 0) {
+        sub.disabled = true;
+        return;
+    }
+    list.forEach(ex => {
+        const opt = document.createElement('option');
+        opt.value = ex;
+        opt.textContent = ex;
+        sub.appendChild(opt);
+    });
+    sub.disabled = false;
+    if (selectedValue) sub.value = selectedValue;
+}
+
 function savePlan() {
     const plan = {};
     PLAN_DAYS.forEach(day => {
         plan[day] = {
             einheit: document.getElementById('einheit-' + day).value,
+            uebung:  document.getElementById('uebung-' + day).value,
             ziel:    document.getElementById('ziel-' + day).value
         };
     });
@@ -85,8 +114,8 @@ function loadPlan() {
     const plan = JSON.parse(saved);
     PLAN_DAYS.forEach(day => {
         if (plan[day]) {
-            const sel = document.getElementById('einheit-' + day);
-            sel.value = plan[day].einheit || '';
+            document.getElementById('einheit-' + day).value = plan[day].einheit || '';
+            if (plan[day].einheit) updateExercises(day, plan[day].uebung || '');
             document.getElementById('ziel-' + day).value = plan[day].ziel || '';
         }
     });
@@ -97,7 +126,10 @@ function resetPlan() {
     localStorage.removeItem('trainingsplan');
     PLAN_DAYS.forEach(day => {
         document.getElementById('einheit-' + day).value = '';
-        document.getElementById('ziel-' + day).value    = '';
+        const sub = document.getElementById('uebung-' + day);
+        sub.innerHTML = '<option value="">— Übung —</option>';
+        sub.disabled = true;
+        document.getElementById('ziel-' + day).value = '';
     });
 }
 

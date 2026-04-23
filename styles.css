@@ -328,6 +328,24 @@ footer {
     outline: none;
     border-color: #3742fa;
 }
+.plan-select-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+.plan-select-sub {
+    border-color: #c8ccf0;
+    color: #888;
+    background-color: #f5f6ff;
+}
+.plan-select-sub:not([disabled]) {
+    color: #333;
+    background-color: white;
+    border-color: #e0e3f0;
+}
+.plan-select-sub:not([disabled]):focus {
+    border-color: #3742fa;
+}
 .plan-buttons {
     display: flex;
     gap: 1rem;
