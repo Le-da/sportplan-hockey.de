@@ -99,8 +99,7 @@ function savePlan() {
         const sub = document.getElementById('uebung-' + day);
         plan[day] = {
             einheit: document.getElementById('einheit-' + day).value,
-            uebung:  Array.from(sub.selectedOptions).map(o => o.value),
-            ziel:    document.getElementById('ziel-' + day).value
+            uebung:  Array.from(sub.selectedOptions).map(o => o.value)
         };
     });
     localStorage.setItem('trainingsplan', JSON.stringify(plan));
@@ -117,8 +116,7 @@ function loadPlan() {
     PLAN_DAYS.forEach(day => {
         if (plan[day]) {
             document.getElementById('einheit-' + day).value = plan[day].einheit || '';
-            if (plan[day].einheit) updateExercises(day, plan[day].uebung || '');
-            document.getElementById('ziel-' + day).value = plan[day].ziel || '';
+            if (plan[day].einheit) updateExercises(day, plan[day].uebung || []);
         }
     });
 }
@@ -132,7 +130,6 @@ function resetPlan() {
         sub.innerHTML = '';
         sub.disabled = true;
         sub.size = 1;
-        document.getElementById('ziel-' + day).value = '';
     });
 }
 
