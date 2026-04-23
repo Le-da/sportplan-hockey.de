@@ -85,8 +85,9 @@ function loadPlan() {
     const plan = JSON.parse(saved);
     PLAN_DAYS.forEach(day => {
         if (plan[day]) {
-            document.getElementById('einheit-' + day).value = plan[day].einheit || '';
-            document.getElementById('ziel-' + day).value    = plan[day].ziel    || '';
+            const sel = document.getElementById('einheit-' + day);
+            sel.value = plan[day].einheit || '';
+            document.getElementById('ziel-' + day).value = plan[day].ziel || '';
         }
     });
 }
