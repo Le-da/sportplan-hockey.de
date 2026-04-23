@@ -96,12 +96,6 @@ header h1 {
     color: #666;
     margin-top: 0.5rem;
 }
-.sidebar svg {
-    width: 100px;
-    height: 100px;
-    margin: 1rem;
-    fill: #ff4757;
-}
 h2 {
     color: #3742fa;
     text-align: center;
