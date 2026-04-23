@@ -1,3 +1,7 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -7,6 +11,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 header {
     background: linear-gradient(135deg, #ff4757 0%, #3742fa 100%);
@@ -245,100 +250,129 @@ footer {
 /* ── Tablet ── */
 @media (max-width: 768px) {
     header {
-        padding: 1.25rem 1rem;
+        padding: 1rem;
     }
     header h1 {
-        font-size: 1.75rem;
+        font-size: 1.6rem;
     }
     .container {
-        margin: 1rem;
-        padding: 1.25rem;
+        margin: 0.75rem;
+        padding: 1rem;
         border-radius: 8px;
+        width: calc(100% - 1.5rem);
+    }
+    .tabs {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.4rem;
     }
     .tab {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
+        padding: 0.6rem 0.5rem;
+        font-size: 0.82rem;
+        border-radius: 20px;
+        text-align: center;
+    }
+    .exercise-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
     .banner,
     .cardio-banner {
-        height: 220px;
+        height: 200px;
     }
     .banner-text h2 {
-        font-size: 1.8rem;
-    }
-    .banner-text p {
-        font-size: 1rem;
-    }
-    h2 {
         font-size: 1.6rem;
     }
+    .banner-text p {
+        font-size: 0.95rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
     .modal-content {
+        width: 90vw;
         max-width: 90vw;
-        padding: 1.5rem;
+        padding: 1.25rem;
+    }
+    .timer-display {
+        font-size: 3rem;
     }
 }
 
 /* ── Smartphone ── */
 @media (max-width: 480px) {
-    * {
-        box-sizing: border-box;
-    }
     header {
-        padding: 1rem;
+        padding: 0.85rem 0.75rem;
     }
     header h1 {
-        font-size: 1.4rem;
+        font-size: 1.25rem;
     }
     .container {
         margin: 0.5rem;
-        padding: 1rem;
+        padding: 0.75rem;
+        width: calc(100% - 1rem);
+        border-radius: 8px;
     }
     .tabs {
-        gap: 0.4rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.35rem;
     }
     .tab {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.8rem;
-        border-radius: 20px;
+        padding: 0.55rem 0.4rem;
+        font-size: 0.75rem;
+        border-radius: 16px;
     }
     .exercise-grid {
         grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    .exercise-card {
+        padding: 0.85rem;
     }
     .banner,
     .cardio-banner {
-        height: 180px;
-        margin-bottom: 1.25rem;
+        height: 160px;
+        margin-bottom: 1rem;
+        border-radius: 8px;
     }
     .banner-text {
-        padding: 1rem;
+        padding: 0.75rem;
     }
     .banner-text h2 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+        margin-bottom: 0.25rem;
     }
     .banner-text p {
-        font-size: 0.9rem;
+        font-size: 0.82rem;
     }
     h2 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
+    }
+    p {
+        font-size: 0.9rem;
     }
     .modal-content {
+        width: 95vw;
         max-width: 95vw;
         padding: 1rem;
         border-radius: 12px;
+        margin: 0 auto;
     }
     .timer-display {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
+        margin: 0.75rem 0;
     }
     .timer-buttons {
         flex-wrap: wrap;
-        gap: 0.6rem;
+        gap: 0.5rem;
+        margin-top: 1rem;
     }
     .timer-btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
+        padding: 0.6rem 0.9rem;
+        font-size: 0.85rem;
+        flex: 1 1 auto;
     }
     footer {
         padding: 0.75rem;
-        font-size: 0.85rem;
+        font-size: 0.82rem;
     }
 }
