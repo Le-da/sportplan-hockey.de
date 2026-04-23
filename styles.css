@@ -272,13 +272,13 @@ footer {
     color: #aaa;
 }
 .card-select-btn.active {
-    background: #3742fa;
-    border-color: #3742fa;
+    background: #c4878f;
+    border-color: #c4878f;
     color: white;
 }
 .exercise-card.card-selected {
-    outline: 3px solid #3742fa;
-    box-shadow: 0 0 0 4px rgba(55,66,250,0.15);
+    outline: 3px solid #c4878f;
+    box-shadow: 0 0 0 4px rgba(196,135,143,0.2);
 }
 .select-panel {
     position: fixed;
@@ -301,7 +301,7 @@ footer {
 }
 .select-count {
     font-weight: bold;
-    color: #3742fa;
+    color: #c4878f;
     flex: 1 1 100%;
     font-size: 0.9rem;
 }
