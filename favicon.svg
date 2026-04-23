@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff4757"/>
+      <stop offset="100%" stop-color="#3742fa"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="url(#bg)"/>
+  <!-- Hockey stick -->
+  <path d="M 11 5 L 11 22 Q 11 27 17 27 L 23 27" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Ball -->
+  <circle cx="26" cy="22" r="3" fill="white"/>
+</svg>
