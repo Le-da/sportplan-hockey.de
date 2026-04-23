@@ -6,10 +6,22 @@
     </linearGradient>
   </defs>
   <rect width="32" height="32" rx="7" fill="url(#bg)"/>
-  <!-- Stick shaft -->
-  <line x1="20" y1="4" x2="8" y2="22" stroke="white" stroke-width="3" stroke-linecap="round"/>
-  <!-- Stick blade -->
-  <line x1="8" y1="22" x2="18" y2="26" stroke="white" stroke-width="3" stroke-linecap="round"/>
-  <!-- Ball -->
-  <circle cx="23" cy="24" r="4.5" fill="white"/>
+
+  <!-- Net lines (behind frame) -->
+  <line x1="5" y1="8"  x2="5"  y2="26" stroke="white" stroke-width="0.7" opacity="0.4"/>
+  <line x1="11" y1="8" x2="11" y2="26" stroke="white" stroke-width="0.7" opacity="0.4"/>
+  <line x1="17" y1="8" x2="17" y2="26" stroke="white" stroke-width="0.7" opacity="0.4"/>
+  <line x1="23" y1="8" x2="23" y2="26" stroke="white" stroke-width="0.7" opacity="0.4"/>
+  <line x1="27" y1="8" x2="27" y2="26" stroke="white" stroke-width="0.7" opacity="0.4"/>
+  <line x1="5" y1="13" x2="27" y2="13" stroke="white" stroke-width="0.7" opacity="0.4"/>
+  <line x1="5" y1="19" x2="27" y2="19" stroke="white" stroke-width="0.7" opacity="0.4"/>
+
+  <!-- Goal frame -->
+  <line x1="5"  y1="8"  x2="27" y2="8"  stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="5"  y1="8"  x2="5"  y2="26" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="27" y1="8"  x2="27" y2="26" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="5"  y1="26" x2="27" y2="26" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Ball inside goal -->
+  <circle cx="16" cy="18" r="5" fill="white"/>
 </svg>
