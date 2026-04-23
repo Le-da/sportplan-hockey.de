@@ -209,6 +209,22 @@
             </div>
         </div>
     </div>
+    <div id="selectPanel" class="select-panel">
+        <span id="selectCount" class="select-count"></span>
+        <select id="selectDay" class="plan-select select-day-pick">
+            <option value="">— Tag wählen —</option>
+            <option value="mon">Montag</option>
+            <option value="die">Dienstag</option>
+            <option value="mit">Mittwoch</option>
+            <option value="don">Donnerstag</option>
+            <option value="fre">Freitag</option>
+            <option value="sam">Samstag</option>
+            <option value="son">Sonntag</option>
+        </select>
+        <button class="plan-btn select-confirm-btn" onclick="addToPlan()">Zum Trainingsplan</button>
+        <button class="plan-btn plan-btn-reset select-cancel-btn" onclick="clearSelection()">Abbrechen</button>
+    </div>
+
     <div id="exerciseModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>

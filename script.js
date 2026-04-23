@@ -64,6 +64,78 @@ function playSound() {
 
 const PLAN_DAYS = ['mon','die','mit','don','fre','sam','son'];
 
+const TAB_CATEGORY = {
+    'Beintraining':    'Beintraining',
+    'Bauchtraining':   'Bauchtraining',
+    'Oberkoerper':     'Oberkörpertraining',
+    'Cardio':          'Cardio',
+    'Hockeyspezifisch':'Feldhockey-spezifisch'
+};
+
+let selectedExercises = [];
+
+function toggleExerciseSelect(event, name, tabId) {
+    event.stopPropagation();
+    const category = TAB_CATEGORY[tabId];
+    const idx = selectedExercises.findIndex(e => e.name === name);
+    if (idx >= 0) {
+        selectedExercises.splice(idx, 1);
+    } else {
+        selectedExercises.push({ name, category });
+    }
+    updateSelectPanel();
+}
+
+function updateSelectPanel() {
+    const panel = document.getElementById('selectPanel');
+    const count = document.getElementById('selectCount');
+    panel.classList.toggle('show', selectedExercises.length > 0);
+    count.textContent = selectedExercises.length + ' Übung(en) ausgewählt';
+    document.querySelectorAll('.card-select-btn').forEach(btn => {
+        const isSelected = selectedExercises.some(e => e.name === btn.dataset.name);
+        btn.classList.toggle('active', isSelected);
+        btn.textContent = isSelected ? '✓' : '+';
+        btn.closest('.exercise-card').classList.toggle('card-selected', isSelected);
+    });
+}
+
+function addToPlan() {
+    const day = document.getElementById('selectDay').value;
+    if (!day) { alert('Bitte zuerst einen Tag auswählen.'); return; }
+    const categories = [...new Set(selectedExercises.map(e => e.category))];
+    if (categories.length > 1) {
+        alert('Bitte nur Übungen einer Kategorie auswählen.');
+        return;
+    }
+    const category = categories[0];
+    const names = selectedExercises.map(e => e.name);
+    document.getElementById('einheit-' + day).value = category;
+    updateExercises(day, names);
+    clearSelection();
+    document.querySelector('[onclick*="Trainingsplan"]').click();
+}
+
+function clearSelection() {
+    selectedExercises = [];
+    updateSelectPanel();
+}
+
+function initExerciseSelectButtons() {
+    document.querySelectorAll('.tab-content').forEach(tab => {
+        const tabId = tab.id;
+        if (!TAB_CATEGORY[tabId]) return;
+        tab.querySelectorAll('.exercise-card').forEach(card => {
+            const name = card.querySelector('h3').textContent;
+            const btn = document.createElement('button');
+            btn.className = 'card-select-btn';
+            btn.dataset.name = name;
+            btn.textContent = '+';
+            btn.setAttribute('onclick', `toggleExerciseSelect(event, '${name}', '${tabId}')`);
+            card.appendChild(btn);
+        });
+    });
+}
+
 const EXERCISES = {
     'Beintraining':          ['Squats', 'Lunges', 'Box Jumps'],
     'Bauchtraining':         ['Plank', 'Russian Twists', 'Bicycle Crunches'],
@@ -141,4 +213,5 @@ document.addEventListener("DOMContentLoaded", function() {
         if (e.target === this) closeModal();
     });
     loadPlan();
+    initExerciseSelectButtons();
 });
