@@ -262,12 +262,13 @@ footer {
         width: calc(100% - 1.5rem);
     }
     .tabs {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 0.4rem;
     }
     .tab {
-        padding: 0.6rem 0.5rem;
+        padding: 0.6rem 0.9rem;
         font-size: 0.82rem;
         border-radius: 20px;
         text-align: center;
@@ -313,11 +314,11 @@ footer {
         border-radius: 8px;
     }
     .tabs {
-        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
         gap: 0.35rem;
     }
     .tab {
-        padding: 0.55rem 0.4rem;
+        padding: 0.55rem 0.75rem;
         font-size: 0.75rem;
         border-radius: 16px;
     }
