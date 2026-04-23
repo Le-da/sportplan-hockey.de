@@ -337,14 +337,29 @@ footer {
     border-color: #c8ccf0;
     color: #888;
     background-color: #f5f6ff;
+    min-height: 42px;
 }
 .plan-select-sub:not([disabled]) {
     color: #333;
     background-color: white;
     border-color: #e0e3f0;
+    min-height: unset;
+    height: auto;
 }
 .plan-select-sub:not([disabled]):focus {
     border-color: #3742fa;
+}
+.plan-select-sub option {
+    padding: 0.3rem 0.5rem;
+}
+.plan-select-hint {
+    font-size: 0.72rem;
+    color: #999;
+    margin-top: 0.2rem;
+    display: none;
+}
+.plan-select-sub:not([disabled]) + .plan-select-hint {
+    display: block;
 }
 .plan-buttons {
     display: flex;

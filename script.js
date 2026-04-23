@@ -73,10 +73,10 @@ const EXERCISES = {
     'Pause / Ruhetag':       []
 };
 
-function updateExercises(day, selectedValue) {
+function updateExercises(day, selectedValues) {
     const cat = document.getElementById('einheit-' + day).value;
     const sub = document.getElementById('uebung-' + day);
-    sub.innerHTML = '<option value="">— Übung —</option>';
+    sub.innerHTML = '';
     const list = EXERCISES[cat] || [];
     if (list.length === 0) {
         sub.disabled = true;
@@ -86,18 +86,20 @@ function updateExercises(day, selectedValue) {
         const opt = document.createElement('option');
         opt.value = ex;
         opt.textContent = ex;
+        if (Array.isArray(selectedValues) && selectedValues.includes(ex)) opt.selected = true;
         sub.appendChild(opt);
     });
     sub.disabled = false;
-    if (selectedValue) sub.value = selectedValue;
+    sub.size = list.length;
 }
 
 function savePlan() {
     const plan = {};
     PLAN_DAYS.forEach(day => {
+        const sub = document.getElementById('uebung-' + day);
         plan[day] = {
             einheit: document.getElementById('einheit-' + day).value,
-            uebung:  document.getElementById('uebung-' + day).value,
+            uebung:  Array.from(sub.selectedOptions).map(o => o.value),
             ziel:    document.getElementById('ziel-' + day).value
         };
     });
@@ -127,8 +129,9 @@ function resetPlan() {
     PLAN_DAYS.forEach(day => {
         document.getElementById('einheit-' + day).value = '';
         const sub = document.getElementById('uebung-' + day);
-        sub.innerHTML = '<option value="">— Übung —</option>';
+        sub.innerHTML = '';
         sub.disabled = true;
+        sub.size = 1;
         document.getElementById('ziel-' + day).value = '';
     });
 }
