@@ -331,7 +331,7 @@ footer {
     overflow: hidden;
 }
 .plan-table thead tr {
-    background: linear-gradient(135deg, #ff4757 0%, #3742fa 100%);
+    background: linear-gradient(135deg, #c4878f 0%, #d4a0a8 100%);
     color: white;
 }
 .plan-table th {
@@ -341,13 +341,13 @@ footer {
     font-weight: bold;
 }
 .plan-table tbody tr:nth-child(odd) {
-    background: #f8f9ff;
+    background: #fdf5f6;
 }
 .plan-table tbody tr:nth-child(even) {
     background: #fff;
 }
 .plan-table tbody tr:hover {
-    background: #eef0ff;
+    background: #f5e6e8;
 }
 .plan-table td {
     padding: 0.6rem 0.75rem;
@@ -355,7 +355,7 @@ footer {
 }
 .day-label {
     font-weight: bold;
-    color: #3742fa;
+    color: #c4878f;
     white-space: nowrap;
     width: 110px;
     vertical-align: middle !important;
@@ -374,7 +374,7 @@ footer {
 }
 .plan-input:focus {
     outline: none;
-    border-color: #3742fa;
+    border-color: #c4878f;
 }
 .plan-select {
     width: 100%;
@@ -387,7 +387,7 @@ footer {
     background: white;
     cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233742fa' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c4878f' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.75rem center;
     padding-right: 2rem;
@@ -395,7 +395,7 @@ footer {
 }
 .plan-select:focus {
     outline: none;
-    border-color: #3742fa;
+    border-color: #c4878f;
 }
 .plan-select-group {
     display: flex;
@@ -416,7 +416,7 @@ footer {
     height: auto;
 }
 .plan-select-sub:not([disabled]):focus {
-    border-color: #3742fa;
+    border-color: #c4878f;
 }
 .plan-select-sub option {
     padding: 0.3rem 0.5rem;
@@ -443,7 +443,7 @@ footer {
     font-weight: bold;
     font-size: 1rem;
     cursor: pointer;
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #c4878f 0%, #d4a0a8 100%);
     color: white;
     transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -452,7 +452,7 @@ footer {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 .plan-btn-reset {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ff4757 100%);
+    background: linear-gradient(135deg, #b06060 0%, #c47070 100%);
 }
 
 /* ── Tablet ── */
@@ -608,7 +608,7 @@ footer {
         margin-bottom: 0.25rem;
     }
     .day-label {
-        background: linear-gradient(135deg, #ff4757 0%, #3742fa 100%);
+        background: linear-gradient(135deg, #c4878f 0%, #d4a0a8 100%);
         color: white !important;
         font-size: 1rem;
         padding: 0.6rem 0.75rem;
